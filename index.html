@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1519705032629194');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1519705032629194&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legend Binary Trader</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: white;
+            color: black;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .trader-landing {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .landing-header {
+            text-align: center;
+            padding: 15px 15px 5px;
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            text-align: center;
+            padding: 20px 15px 30px;
+        }
+        
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid black;
+            margin: 0 auto 30px;
+            display: block;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+        }
+        
+        .main-heading {
+            font-size: 36px;
+            font-weight: 900;
+            margin: 0 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: black;
+            line-height: 1.2;
+            padding: 0 10px;
+        }
+        
+        .sub-heading {
+            font-size: 16px;
+            color: #666;
+            margin: 0 0 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            padding: 0 15px;
+        }
+        
+        /* Main Black Join Button - BIG */
+        .main-join-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #000, #222);
+            color: white;
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 25px 80px;
+            border-radius: 15px;
+            text-decoration: none;
+            margin: 10px 0 50px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 4px solid black;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+            line-height: 1;
+        }
+        
+        .main-join-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.4) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(25deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -60%;
+            }
+            20% {
+                left: 120%;
+            }
+            100% {
+                left: 120%;
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            }
+            100% {
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        .main-join-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #111, #000);
+        }
+        
+        /* Crypto Chart Section */
+        .chart-section {
+            padding: 0 15px 50px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .chart-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: black;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            background: white;
+            border-radius: 15px;
+            padding: 4px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            border: 3px solid black;
+            overflow: hidden;
+        }
+        
+        .chart-box {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .chart-price {
+            font-size: 28px;
+            font-weight: 900;
+            color: #000;
+        }
+        
+        .chart-change {
+            font-size: 18px;
+            font-weight: 800;
+            color: #8e1414;
+            background: #ffeaea;
+            padding: 6px 16px;
+            border-radius: 8px;
+        }
+        
+        .chart-line {
+            position: relative;
+            height: 120px;
+            margin-top: 20px;
+        }
+        
+        .chart-svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .chart-svg path {
+            stroke: #000;
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        /* Countdown Timer - 40 seconds */
+        .countdown-section {
+            text-align: center;
+            padding: 40px 15px 60px;
+        }
+        
+        .countdown-title {
+            font-size: 24px;
+            font-weight: 900;
+            color: black;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .countdown-container {
+            display: inline-flex;
+            gap: 30px;
+            background: white;
+            padding: 25px 50px;
+            border-radius: 15px;
+            border: 4px solid black;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .countdown-item {
+            text-align: center;
+            min-width: 100px;
+        }
+        
+        .countdown-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: black;
+            font-family: 'Courier New', monospace;
+            line-height: 1;
+            margin-bottom: 8px;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+        }
+        
+        .countdown-label {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+        
+        /* Bottom Navigation Bar - CURVED DESIGN */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: black;
+            padding: 25px 20px 35px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
+            border-radius: 50px 50px 0 0;
+            clip-path: ellipse(100% 100% at 50% 100%);
+        }
+        
+        .nav-btn {
+            display: inline-block;
+            background: white;
+            color: black;
+            font-size: 22px;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 22px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            border: 4px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .nav-btn:hover {
+            background: black;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-heading {
+                font-size: 30px;
+            }
+            
+            .main-join-btn {
+                font-size: 24px;
+                padding: 22px 60px;
+                margin-bottom: 40px;
+            }
+            
+            .countdown-container {
+                gap: 20px;
+                padding: 20px 35px;
+            }
+            
+            .countdown-value {
+                font-size: 40px;
+            }
+            
+            .countdown-item {
+                min-width: 85px;
+            }
+            
+            .chart-container {
+                height: 200px;
+            }
+            
+            .nav-btn {
+                font-size: 20px;
+                padding: 20px 40px;
+            }
+            
+            .bottom-nav {
+                padding: 20px 15px 30px;
+                border-radius: 40px 40px 0 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-img {
+                width: 140px;
+                height: 140px;
+                margin-bottom: 25px;
+            }
+            
+            .main-heading {
+                font-size: 26px;
+            }
+            
+            .sub-heading {
+                font-size: 14px;
+                letter-spacing: 1.5px;
+                margin-bottom: 35px;
+            }
+            
+            .main-join-btn {
+                font-size: 22px;
+                padding: 20px 40px;
+                margin: 5px 0 40px;
+            }
+            
+            .countdown-container {
+                flex-wrap: wrap;
+                gap: 15px;
+                padding: 20px;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+            }
+            
+            .countdown-value {
+                font-size: 36px;
+            }
+            
+            .chart-price {
+                font-size: 24px;
+            }
+            
+            .chart-change {
+                font-size: 16px;
+                padding: 5px 12px;
+            }
+            
+            .nav-btn {
+                font-size: 18px;
+                padding: 18px 30px;
+            }
+            
+            .bottom-nav {
+                border-radius: 30px 30px 0 0;
+                padding: 20px 15px 25px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .main-heading {
+                font-size: 22px;
+            }
+            
+            .main-join-btn {
+                font-size: 20px;
+                padding: 18px 30px;
+            }
+            
+            .countdown-value {
+                font-size: 32px;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="trader-landing">
+        <!-- Header -->
+        <div class="landing-header">
+            <!-- Clean header -->
+        </div>
+        
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/693c794b0b32f_6091154763182443577.jpg" 
+                 alt="Mehta Is Back Official™" 
+                 class="profile-img"
+                 loading="eager">
+            
+            <h1 class="main-heading">Mehta Is Back Official™</h1>
+            <p class="sub-heading">JOIN OUR TEL3GRAM FOR DAILY UPDATES</p>
+            
+            <!-- Main Big Black Join Button -->
+            <a href="https://t.me/+jXL5f8AzWTYxZGVl" class="main-join-btn" target="_blank" id="main-join-btn">JOIN NOW FREE</a>
+        </div>
+        
+        <!-- Crypto Chart Section -->
+        <div class="chart-section">
+            <h2 class="chart-title">MARKET PERFORMANCE</h2>
+            <div class="chart-container">
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <div class="chart-price">βTζ $70,850</div>
+                        <div class="chart-change">+1.45%</div>
+                    </div>
+                    <div class="chart-line">
+                        <svg class="chart-svg" viewBox="0 0 400 120" preserveAspectRatio="none">
+                            <path d="M0,100 L30,80 L60,90 L90,60 L120,75 L150,50 L180,70 L210,40 L240,60 L270,30 L300,50 L330,20 L360,40 L400,25" 
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Countdown Timer - 40 seconds -->
+        <div class="countdown-section">
+            <h2 class="countdown-title">OFFER ENDS IN</h2>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="cd-minutes">00</div>
+                    <div class="countdown-label">MINUTES</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="cd-seconds">40</div>
+                    <div class="countdown-label">SECONDS</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Navigation Bar - Curved Design -->
+        <div class="bottom-nav">
+            <a href="https://t.me/+jXL5f8AzWTYxZGVl" class="nav-btn" target="_blank" id="bottom-join-btn">Join Our Telegram</a>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer - 40 seconds with auto-redirect
+        (function() {
+            var seconds = 40;
+            var secondsEl = document.getElementById('cd-seconds');
+            var minutesEl = document.getElementById('cd-minutes');
+            var redirectTimer;
+            
+            function updateTimer() {
+                seconds--;
+                
+                if (seconds < 0) {
+                    clearInterval(redirectTimer);
+                    // Redirect to Telegram
+                    window.location.href = "https://t.me/+jXL5f8AzWTYxZGVl";
+                    return;
+                }
+                
+                var mins = Math.floor(seconds / 60);
+                var secs = seconds % 60;
+                
+                minutesEl.textContent = mins < 10 ? '0' + mins : mins;
+                secondsEl.textContent = secs < 10 ? '0' + secs : secs;
+                
+                // Add visual effect when 10 seconds left
+                if (seconds <= 10) {
+                    secondsEl.style.color = '#ff0000';
+                    secondsEl.style.animation = 'pulse 0.5s infinite';
+                    document.querySelector('.countdown-container').style.borderColor = '#ff0000';
+                    document.querySelector('.countdown-container').style.boxShadow = '0 15px 40px rgba(255, 0, 0, 0.2)';
+                }
+            }
+            
+            // Start countdown
+            updateTimer();
+            redirectTimer = setInterval(updateTimer, 1000);
+            
+            // Auto-click bottom button after 35 seconds
+            setTimeout(function() {
+                document.getElementById('bottom-join-btn').click();
+            }, 35000);
+            
+            // Auto-click main button after 38 seconds
+            setTimeout(function() {
+                document.getElementById('main-join-btn').click();
+            }, 38000);
+        })();
+        
+        // Add click event for buttons with animation
+        document.addEventListener('DOMContentLoaded', function() {
+            var buttons = document.querySelectorAll('.main-join-btn, .nav-btn');
+            buttons.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    // Add click animation
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                    
+                    // Optional: Play sound
+                    // var clickSound = new Audio('click.mp3');
+                    // clickSound.play();
+                });
+            });
+            
+            // Simple chart animation on load
+            setTimeout(function() {
+                var path = document.querySelector('.chart-svg path');
+                if (path) {
+                    path.style.strokeDasharray = '1000';
+                    path.style.strokeDashoffset = '1000';
+                    path.style.animation = 'drawChart 2s ease-out forwards';
+                    
+                    // Add animation to CSS
+                    var style = document.createElement('style');
+                    style.textContent = `
+                        @keyframes drawChart {
+                            from {
+                                stroke-dashoffset: 1000;
+                            }
+                            to {
+                                stroke-dashoffset: 0;
+                            }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }, 500);
+        });
+        
+        // Preload image for faster loading
+        window.onload = function() {
+            var img = new Image();
+            img.src = "https://d1yei2z3i6k35z.cloudfront.net/13184094/693c794b0b32f_6091154763182443577.jpg";
+        };
+    </script>
+</body>
+</html>
