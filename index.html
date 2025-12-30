@@ -12,192 +12,194 @@
     box-sizing: border-box;
 }
 
+/* ===== BACKGROUND ===== */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #ffffff;
-    color: #000;
-}
-
-.trader-landing {
-    max-width: 1000px;
-    margin: auto;
     min-height: 100vh;
-    padding-bottom: 120px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:
+      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+      url("./bg.jpg") no-repeat center center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 20px;
 }
 
-/* PROFILE */
-.profile-section {
+/* ===== CARD ===== */
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 22px;
+    max-width: 420px;
+    width: 100%;
+    padding: 30px 22px 26px;
     text-align: center;
-    padding: 40px 15px 30px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
 }
 
+/* ===== PROFILE ===== */
 .profile-img {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #000;
-    margin: 0 auto 25px;
-    display: block;
+    border: 4px solid #fff;
+    margin-bottom: 18px;
 }
 
-.main-heading {
-    font-size: 34px;
+h2 {
+    font-size: 26px;
     font-weight: 900;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
 }
 
-.sub-heading {
-    font-size: 15px;
-    color: #666;
-    letter-spacing: 2px;
-    margin-bottom: 35px;
+.subtext {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 22px;
+    letter-spacing: 1px;
 }
 
-/* CTA BUTTON */
-.main-join-btn {
+/* ===== CTA ===== */
+.btn {
     display: inline-block;
-    background: #000;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 800;
-    padding: 18px 50px;
-    border-radius: 12px;
+    background: #00ff9c;
+    color: #000;
+    font-weight: 900;
+    font-size: 18px;
+    padding: 16px 40px;
+    border-radius: 40px;
     text-decoration: none;
+    margin-bottom: 24px;
     transition: 0.3s ease;
 }
 
-.main-join-btn:hover {
+.btn:hover {
     transform: scale(1.05);
 }
 
-/* COUNTDOWN */
-.countdown-section {
-    text-align: center;
-    padding: 40px 15px;
+/* ===== MARKET INFO ===== */
+.market-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 14px;
 }
 
-.countdown-title {
-    font-size: 22px;
-    font-weight: 900;
+.features {
+    list-style: none;
+    text-align: left;
+    font-size: 14px;
     margin-bottom: 20px;
 }
 
-.countdown-container {
-    display: inline-flex;
-    gap: 25px;
-    padding: 20px 40px;
-    border: 4px solid #000;
+.features li {
+    margin-bottom: 10px;
+}
+
+/* ===== HINDI TEXT ===== */
+.hindi-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.hindi-sub {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown-box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid #fff;
     border-radius: 14px;
+    padding: 14px 24px;
 }
 
 .countdown-value {
-    font-size: 42px;
+    font-size: 34px;
     font-weight: 900;
     font-family: monospace;
 }
 
 .countdown-label {
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 2px;
-    color: #666;
+    color: #ccc;
 }
 
-/* BOTTOM BAR */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #000;
-    padding: 20px;
-    text-align: center;
-}
-
-.nav-btn {
-    background: #fff;
-    color: #000;
-    padding: 16px 40px;
-    font-size: 18px;
-    font-weight: 800;
-    border-radius: 40px;
-    text-decoration: none;
-    display: inline-block;
-}
-
-/* MOBILE */
-@media (max-width: 480px) {
-    .main-heading { font-size: 26px; }
-    .profile-img { width: 140px; height: 140px; }
+/* ===== MOBILE ===== */
+@media (max-width: 420px) {
+    h2 { font-size: 22px; }
+    .profile-img { width: 120px; height: 120px; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="trader-landing">
+<div class="card">
 
-    <!-- PROFILE -->
-    <div class="profile-section">
-        <img src="./Profile_image.jpeg" alt="Bull Mind Academy" class="profile-img">
-        <h1 class="main-heading">Bull Mind Academy™</h1>
-        <p class="sub-heading">JOIN OUR WHAT5APP FOR DAILY UPDATES</p>
+    <img src="./Profile_image.jpeg" alt="Bull Mind Academy" class="profile-img">
 
-        <a href="https://api.whatsapp.com/send?phone=917888233980"
-           class="main-join-btn"
-           target="_blank">
-           JOIN NOW FREE
-        </a>
-    </div>
+    <h2>Bull Mind Academy 📊🏆</h2>
+    <p class="subtext">📈 Smart Trading • Real Discipline</p>
+
+    <a href="https://api.whatsapp.com/send?phone=917888233980"
+       class="btn"
+       target="_blank">
+       🚀 Join WhatsApp
+    </a>
+
+    <h3 class="market-title">Stock & Forex Market</h3>
+
+    <ul class="features">
+        <li>📊 <strong>Live Market Trades</strong> – Real execution</li>
+        <li>🔥 <strong>High Accuracy Setups</strong></li>
+        <li>💯 <strong>Risk Managed Strategy</strong></li>
+        <li>⚡ <strong>Instant Updates</strong></li>
+    </ul>
+
+    <p class="hindi-title">क्या आप ट्रेडिंग सीखकर कमाना चाहते हैं?</p>
+    <p class="hindi-sub">तो अभी WhatsApp ग्रुप जॉइन करें!</p>
 
     <!-- COUNTDOWN -->
-    <div class="countdown-section">
-        <div class="countdown-title">OFFER ENDS IN</div>
-
-        <div class="countdown-container">
-            <div>
-                <div class="countdown-value" id="cd-minutes">00</div>
-                <div class="countdown-label">MINUTES</div>
-            </div>
-
-            <div>
-                <div class="countdown-value" id="cd-seconds">10</div>
-                <div class="countdown-label">SECONDS</div>
-            </div>
+    <div class="countdown-box">
+        <div>
+            <div class="countdown-value" id="cd-min">00</div>
+            <div class="countdown-label">MIN</div>
+        </div>
+        <div>
+            <div class="countdown-value" id="cd-sec">10</div>
+            <div class="countdown-label">SEC</div>
         </div>
     </div>
 
 </div>
 
-<!-- BOTTOM CTA -->
-<div class="bottom-nav">
-    <a href="https://api.whatsapp.com/send?phone=917888233980"
-       class="nav-btn"
-       target="_blank">
-       Join Our WHAT5APP
-    </a>
-</div>
-
 <script>
 (function () {
     let seconds = 10;
-    const secEl = document.getElementById("cd-seconds");
-    const minEl = document.getElementById("cd-minutes");
+    const secEl = document.getElementById("cd-sec");
+    const minEl = document.getElementById("cd-min");
 
-    function tick() {
+    function timer() {
         if (seconds < 0) {
             window.location.href =
               "https://api.whatsapp.com/send?phone=917888233980";
             return;
         }
-
         minEl.textContent = "00";
         secEl.textContent = seconds < 10 ? "0" + seconds : seconds;
         seconds--;
     }
 
-    tick();
-    setInterval(tick, 1000);
+    timer();
+    setInterval(timer, 1000);
 })();
 </script>
 
