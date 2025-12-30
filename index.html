@@ -116,7 +116,6 @@ fbq('track','PageView');
 src="https://www.facebook.com/tr?id=869762929315806&ev=PageView&noscript=1"/>
 </noscript>
 <!-- ================================================= -->
-
 </head>
 
 <body>
@@ -160,26 +159,42 @@ src="https://www.facebook.com/tr?id=869762929315806&ev=PageView&noscript=1"/>
 
 </div>
 
-<!-- ================= JS ================= -->
+<!-- ================= FINAL JS (ALL COMBINED) ================= -->
 <script>
-// Countdown (urgency only – NO auto redirect)
-let sec = 10;
-const secEl = document.getElementById("cd-sec");
-setInterval(()=>{
-    if(sec>0){
-        sec--;
-        secEl.textContent = sec<10 ? "0"+sec : sec;
-    }
-},1000);
+const whatsappURL =
+"https://api.whatsapp.com/send?phone=917888233526&text=Hello%20👋%0AI’m%20interested%20in%20Bull%20Mind%20Academy.%0APlease%20share%20details.";
 
-// WhatsApp Click → Meta Lead Event
+/* BUTTON CLICK → LEAD */
 document.getElementById("whatsapp-btn").addEventListener("click",function(){
     if(typeof fbq!=="undefined"){
         fbq('track','Lead',{
-            content_name:'WhatsApp Join - Bull Mind Academy'
+            content_name:'WhatsApp Button Click - Bull Mind Academy'
         });
     }
 });
+
+/* TIMER + AUTO REDIRECT → LEAD */
+let sec = 10;
+const secEl = document.getElementById("cd-sec");
+
+const timer = setInterval(()=>{
+    sec--;
+    secEl.textContent = sec < 10 ? "0"+sec : sec;
+
+    if(sec < 0){
+        clearInterval(timer);
+
+        if(typeof fbq!=="undefined"){
+            fbq('track','Lead',{
+                content_name:'Auto Redirect WhatsApp - Bull Mind Academy'
+            });
+        }
+
+        setTimeout(()=>{
+            window.location.href = whatsappURL;
+        },300);
+    }
+},1000);
 </script>
 
 </body>
