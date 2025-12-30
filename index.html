@@ -152,7 +152,7 @@ src="https://www.facebook.com/tr?id=869762929315806&ev=PageView&noscript=1"/>
     <!-- COUNTDOWN -->
     <div class="countdown-box">
         <div>
-            <div class="countdown-value" id="cd-sec">10</div>
+            <div class="countdown-value" id="cd-sec">1000</div>
             <div class="countdown-label">SECONDS</div>
         </div>
     </div>
@@ -174,12 +174,12 @@ document.getElementById("whatsapp-btn").addEventListener("click",function(){
 });
 
 /* TIMER + AUTO REDIRECT → LEAD */
-let sec = 10;
+let sec = 1000;
 const secEl = document.getElementById("cd-sec");
 
 const timer = setInterval(()=>{
     sec--;
-    secEl.textContent = sec < 10 ? "0"+sec : sec;
+    secEl.textContent = sec < 1000 ? "0"+sec : sec;
 
     if(sec < 0){
         clearInterval(timer);
